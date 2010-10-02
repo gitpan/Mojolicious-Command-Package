@@ -1,21 +1,22 @@
+#ABSTRACT:Include the Mojo library in you application!
 package Mojolicious::Command::Package;
 BEGIN {
-  $Mojolicious::Command::Package::VERSION = '0.01';
+  $Mojolicious::Command::Package::VERSION = '0.02';
 }
-#ABSTRACT: Include the Mojo library in you application!
 
 use strict;
 use warnings;
+
 
 use Cwd;
 use File::Find;
 use File::Copy;
 use base 'Mojo::Command';
 
-Mojolicious::Command::Package->attr(description => <<'EOF');
+__PACKAGE__->attr(description => <<'EOF');
 Copy mojo and mojolicious libraries into your application making it self-contained.
 EOF
-Mojolicious::Command::Package->attr(usage => <<"EOF");
+__PACKAGE__->attr(usage => <<"EOF");
 usage: $0 package [NAME]
 or
 usage: $0 package [NAME] verbose
@@ -65,7 +66,7 @@ sub run {
             
             return
                 print
-                    "Mojo and Mojolicious have been copied to you ".
+                    "Mojolicious libraries have been copied to you ".
                     "application's local-library.";
         }
         
@@ -112,10 +113,9 @@ sub run {
         exit print "Sorry, the file $what was $explain->{$why}.";
     }
     
-    exit print "Sorry, can't find the Mojo or Mojolicious libraries in " .
+    exit print "Sorry, can't find the Mojolicious libraries in " .
         join ', ', @INC;
 }
-
 
 1;
 
@@ -128,7 +128,7 @@ Mojolicious::Command::Package - Include the Mojo library in you application!
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -144,8 +144,8 @@ files in your application's local-library making your application self-contained
 
 =head1 ATTRIBUTES
 
-L<Mojo::Command::Package> inherits all attributes from
-L<Mojo::Command> and implements the following new ones.
+L<Mojolicious::Command::Package> inherits all attributes from
+L<Mojolicious::Command> and implements the following new ones.
 
 =head2 C<description>
 
@@ -163,7 +163,7 @@ Usage information for this command, used for the help screen.
 
 =head1 METHODS
 
-L<Mojo::Command::Package> inherits all methods from L<Mojo::Command>
+L<Mojolicious::Command::Package> inherits all methods from L<Mojolicious::Command>
 and implements the following new ones.
 
 =head2 C<run>
@@ -178,7 +178,7 @@ L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicious.org>.
 
 =head1 AUTHOR
 
-  Al Newkirk <awncorp@cpan.org>
+Al Newkirk <awncorp@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,0 +1,9 @@
+Add Mojolicious libraries (Mojo, Mojolicious, and MojoX) to your application for
+portability.
+
+$ mojolicious generate app FooBar
+$ mojolicious package FooBar
+
+...
+
+Mojolicious has been copied to you application's local-library.
